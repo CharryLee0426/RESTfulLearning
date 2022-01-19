@@ -43,3 +43,50 @@ To design REST API, we must make these:
 5. Can Cached;
 6. Code with need. We can send some codes to client. It's optional.
 
+### 4. How to create a REST API
+To create a REST API, you may use the following annotations:
+1. `@ResponseBody` : return a JSON
+2. `@GetMapping` : same as `@RequestMapping(method=RequestMethod.GET)`
+3. `@PostMapping`
+4. `@PutMapping`
+5. `@DeleteMapping`
+6. `@RequestBody` : your parameter should be a JSON
+7. `@RestController` : same as `@Controller` + `@ResponseBody`
+
+### 5. Swagger
+Swagger is a framework that can help us create doc of APIs automatically.
+It can create `.html` doc and can test API in this html.
+
+If we want to use Swagger, you should import the dependencies in `pom.xml` firstly.
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>20.0</version>
+    </dependency>
+    <dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger2</artifactId>
+        <version>2.9.2</version>
+    </dependency>
+    <dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger-ui</artifactId>
+        <version>2.9.2</version>
+    </dependency>
+</dependencies>
+```
+
+You should change `spring.mvc.pathmatch.matching-strategy` to
+`ant_path_matcher`.
+```yaml
+spring:
+    mvc:
+      pathmatch:
+        matching-strategy: ant_path_matcher
+```
+
+Firstly, you should make a config class for swagger. Please see the `SwaggerConfig.java`.
+
+You can use `@Api`, `@ApiIoeration`, `@ApiParam`, `@ApiImpplicitParam`.

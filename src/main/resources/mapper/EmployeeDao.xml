@@ -5,7 +5,8 @@
 
 <mapper namespace="com.lichen.restfullearning.dao.EmployeeDao">
     <select id="searchById" resultMap="Employee">
-        select * from employee where id = #{id}
+        select * from employee
+        where id = #{id}
     </select>
 
     <resultMap id="Employee" type="com.lichen.restfullearning.pojo.Employee">
