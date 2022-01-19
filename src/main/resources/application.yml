@@ -3,3 +3,5 @@ spring:
     cache: false
   profiles:
     active: dev
+server:
+  port: 8081

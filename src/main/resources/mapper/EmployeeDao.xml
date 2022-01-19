@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lichen.restfullearning.dao.EmployeeDao">
+    <select id="searchById" resultMap="Employee">
+        select * from employee where id = #{id}
+    </select>
+
+    <resultMap id="Employee" type="com.lichen.restfullearning.pojo.Employee">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="depId" column="dep_id" />
+    </resultMap>
+</mapper>
